@@ -16,6 +16,9 @@ Lecture Link: https://nomadcoders.co/javascript-for-beginners-2
 
 - [**Canvas API**](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
   is used to draw graphics with JavaScript
+  - Use [**HTMLCanvasElement.getContext(\<contextType\>)**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext) to get drawing context on the canvas.
+    - If we use `2d` for `contextType`, the function will return [**CanvasRenderingContext2D**](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
+      Follow the link to see the available drawing functions of `CanvasRenderingContext2D`.
 
 ## Project
 
@@ -26,6 +29,8 @@ Only used HTML, CSS, and Vanilla JavaScript.
 
 **Feature List (From Lecture)**
 
+- Drawing on the canvas
+  - Handle mouse events
 - Design for Desktop site (CSS)
 
 **What I added/modified**
