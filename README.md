@@ -31,6 +31,7 @@ Only used HTML, CSS, and Vanilla JavaScript.
 
 - Drawing on the canvas
   - Handle mouse events
+  - Change Color and Thickness of brush
 - Design for Desktop site (CSS)
 
 **What I added/modified**

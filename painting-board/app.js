@@ -1,6 +1,7 @@
 // HTML Elements
 const canvas = document.getElementById('canvas');
 const colorControls = document.getElementsByClassName('color-control');
+const thicknessControl = document.getElementById('thickness');
 // Setup Canvas
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
@@ -20,6 +21,11 @@ for (colorBtn of colorControls) {
     context.strokeStyle = clickEvent.target.style.backgroundColor;
   });
 }
+
+// Change thickness
+thicknessControl.addEventListener('input', () => {
+  context.lineWidth = thicknessControl.value;
+});
 
 // Canvas EventListeners for Mouse Events
 // Draw when mouse moves
@@ -47,6 +53,6 @@ canvas.addEventListener('mouseup', () => {
 // End drawing when mouse moves outside the canvas
 canvas.addEventListener('mouseleave', () => {
   painting = false;
-})
+});
 
 // touchscreen
