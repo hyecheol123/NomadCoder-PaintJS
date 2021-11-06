@@ -56,39 +56,3 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-
-#control #color-control-wrapper #black {
-  background-color: #2c2c2c;
-}
-
-#control #color-control-wrapper #white {
-  background-color: white;
-}
-
-#control #color-control-wrapper #red {
-  background-color: #ff3b30;
-}
-
-#control #color-control-wrapper #orange {
-  background-color: #ff9500;
-}
-
-#control #color-control-wrapper #yellow {
-  background-color: #ffcc00;
-}
-
-#control #color-control-wrapper #green {
-  background-color: #4cd963;
-}
-
-#control #color-control-wrapper #skyblue {
-  background-color: #5ac8fa;
-}
-
-#control #color-control-wrapper #blue {
-  background-color: #0579ff;
-}
-
-#control #color-control-wrapper #purple {
-  background-color: #5856d6;
-}
