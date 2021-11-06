@@ -14,6 +14,9 @@ Lecture Link: https://nomadcoders.co/javascript-for-beginners-2
 
 ## What I Learn
 
+- [**Canvas API**](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+  is used to draw graphics with JavaScript
+
 ## Project
 
 ### Painting Board
@@ -22,6 +25,8 @@ Followed the lecture contents to build simple patining board.
 Only used HTML, CSS, and Vanilla JavaScript.
 
 **Feature List (From Lecture)**
+
+- Design for Desktop site (CSS)
 
 **What I added/modified**
 

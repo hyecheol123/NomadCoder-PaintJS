@@ -8,6 +8,27 @@
   <title>Painting Board</title>
 </head>
 <body>
+  <canvas id='canvas'></canvas>
+  <div id='control'>
+    <div id="control-thickness-wrapper">
+      <input type="range" id="thickness" min="0.1" max="5" default="2.5" step="0.1" />
+    </div>
+    <div id="control-button-wrapper">
+      <button id="mode">Fill</button>
+      <button id="save">Save</button>
+    </div>
+    <div id='color-control-wrapper'>
+      <div class="color-control" id='black'></div>
+      <div class="color-control" id='white'></div>
+      <div class="color-control" id='red'></div>
+      <div class="color-control" id='orange'></div>
+      <div class="color-control" id='yellow'></div>
+      <div class="color-control" id='green'></div>
+      <div class="color-control" id='skyblue'></div>
+      <div class="color-control" id='blue'></div>
+      <div class="color-control" id='purple'></div>
+    </div>
+  </div>
   <script defer src="app.js"></script>
 </body>
 </html>
