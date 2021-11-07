@@ -49,9 +49,9 @@ Only used HTML, CSS, and Vanilla JavaScript.
   - Indicate which color is currently selected
 - Design for Mobile Site (CSS)
 
-|      ![]()       |
-| :--------------: |
-| _Demo Image of _ |
+| ![](https://raw.githubusercontent.com/hyecheol123/NomadCoder-PaintJS/main/img/demo.png) |
+| :-------------------------------------------------------------------------------------: |
+|                             _Demo Image of Painting Board_                              |
 
 Code Link: https://github.com/hyecheol123/NomadCoder-PaintJS/tree/main/painting-board  
 Demo Link: https://hyecheol123.github.io/NomadCoder-PaintJS/painting-board/
