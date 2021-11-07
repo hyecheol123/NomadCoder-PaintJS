@@ -41,7 +41,7 @@ Only used HTML, CSS, and Vanilla JavaScript.
 
 **What I added/modified**
 
-- TODO: Touch Screen Event Handler
+- Touch Screen Event Handler
 - Restore drawings and settings when canvas resized
 - Change Design (CSS)
   - Full-size canvas
@@ -53,5 +53,5 @@ Only used HTML, CSS, and Vanilla JavaScript.
 | :--------------: |
 | _Demo Image of _ |
 
-Code Link:  
+Code Link: https://github.com/hyecheol123/NomadCoder-PaintJS/tree/main/painting-board  
 Demo Link:

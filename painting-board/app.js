@@ -20,6 +20,7 @@ let painting = false; // whether the user is on painting mode or not
 let filling = false; // By default, the brush will paint on the canvas
 let showControl = false; // By default, does not show control
 let imageData; // Temporal space to store canvas drawing information
+let points = []; // points that used for drawing lines
 
 /**
  * Function to set custom --vh that matches with innerHeight of screen
@@ -39,13 +40,78 @@ let imageData; // Temporal space to store canvas drawing information
   context.lineCap = lineCap;
 }
 
+/**
+ * Function to get cordinates from the event
+ * 
+ * @param {Event} event MouseEvent or TouchEvent
+ */
+function getCords(event) {
+  // Use touchEvent's touches[0] or mouseEvent
+  const source = event.touches ? event.touches[0] : event;
+
+  // return cordinates
+  return {
+    x: source.pageX,
+    y: source.pageY
+  };
+}
+
+/**
+ * Event Handler function to start drawing
+ * 
+ * @param {Event} event MouseEvent or TouchEvent
+ */
+function startDrawing(event) {
+  painting = true;
+  points.push(getCords(event));
+}
+
+/**
+ * Event Handler function to continue drawing
+ * 
+ * @param {Event} event MouseEvent or TouchEvent
+ */
+function stillDrawing(event) {
+  // Code only runs when painting is true
+  if(!painting) return;
+
+  // Set cordinates
+  points.push(getCords(event));
+  let p1 = points[0];
+  let p2 = points[1];
+
+  // Draw curve
+  context.beginPath();
+  context.moveTo(p1.x, p1.y);
+  for(let i = 1; i < points.length; i++) {
+    context.quadraticCurveTo(p1.x, p1.y, p2.x, p2.y);
+    p1 = points[i];
+    p2 = points[i + 1];
+  }
+  context.lineTo(p1.x, p1.y);
+  context.stroke();
+}
+
+/**
+ * Event Handler function to stop drawing
+ */
+function stopDrawing() {
+  painting = false;
+  points = [];
+  
+  // Save Image Data
+  imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+}
+
 setScreenSize();
 // Dynamically change screen size
 window.addEventListener('resize', () => {
   setScreenSize();
 
   // reload saved image
-  context.putImageData(imageData, 0, 0);
+  if(imageData) {
+    context.putImageData(imageData, 0, 0);
+  }
 });
 
 // Show/Hide Control
@@ -102,7 +168,7 @@ saveBtn.addEventListener('click', () => {
   link.click();
 });
 
-// Canvas EventListeners for Mouse Events
+// Canvas EventListeners
 // Click on canvas to fill the canvas
 canvas.addEventListener('click', () => {
   if(filling) {
@@ -113,37 +179,21 @@ canvas.addEventListener('click', () => {
     imageData = context.getImageData(0, 0, canvas.width, canvas.height);
   }
 });
+
+// TouchEvents
+// Start drawing when touch start
+canvas.addEventListener('touchstart', startDrawing);
+// Draw while touching
+canvas.addEventListener('touchmove', stillDrawing);
+// End drawing when touch end
+canvas.addEventListener('touchend', stopDrawing);
+
+// MouseEvents
+// Start drawing when mouse prssed
+canvas.addEventListener('mousedown', startDrawing);
 // Draw when mouse moves
-canvas.addEventListener('mousemove', (mouseEvent) => {
-  const cordX = mouseEvent.offsetX;
-  const cordY = mouseEvent.offsetY;
-  
-  // Paint a line (or point)
-  if(!painting) {
-    context.beginPath();
-    context.moveTo(cordX, cordY);
-  } else {
-    context.lineTo(cordX, cordY);
-    context.stroke();
-  }
-});
-// Starts drawing when mouse prssed
-canvas.addEventListener('mousedown', () => {
-  painting = true;
-});
+canvas.addEventListener('mousemove', stillDrawing);
 // End drawing when mouse releases
-canvas.addEventListener('mouseup', () => {
-  painting = false;
-
-  // Save Image Data
-  imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-});
+canvas.addEventListener('mouseup', stopDrawing);
 // End drawing when mouse moves outside the canvas
-canvas.addEventListener('mouseleave', () => {
-  painting = false;
-  
-  // Save Image Data
-  imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-});
-
-// TODO: touchscreen
+canvas.addEventListener('mouseleave', stopDrawing);
