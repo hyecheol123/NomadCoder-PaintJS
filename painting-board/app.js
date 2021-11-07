@@ -3,6 +3,7 @@ const canvas = document.getElementById('canvas');
 const colorControls = document.getElementsByClassName('color-control');
 const thicknessControl = document.getElementById('thickness');
 const modeBtn = document.getElementById('mode');
+const saveBtn = document.getElementById('save');
 // Setup Canvas
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
@@ -13,6 +14,7 @@ context.strokeStyle = '#2c2c2c'; // Set the line color to black by default
 context.fillStyle = 'white'; // Set the fill color to white by default
 context.lineWidth = 2.5; // Set the line width as 2.5 by default
 context.lineCap = 'round'; // Set the line ending shape
+context.fillRect(0, 0, canvas.width, canvas.height); // Default white background
 
 // Global variable
 let painting = false; // whether the user is on painting mode or not
@@ -39,6 +41,14 @@ modeBtn.addEventListener('click', () => {
     filling = true;
     modeBtn.innerText = 'Paint';
   }
+});
+
+// Save the image
+saveBtn.addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL('image/png');
+  link.download = 'paint.png';
+  link.click();
 });
 
 // Canvas EventListeners for Mouse Events
@@ -78,4 +88,4 @@ canvas.addEventListener('mouseleave', () => {
   painting = false;
 });
 
-// touchscreen
+// TODO: touchscreen

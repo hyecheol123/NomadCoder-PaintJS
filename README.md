@@ -19,6 +19,9 @@ Lecture Link: https://nomadcoders.co/javascript-for-beginners-2
   - Use [**HTMLCanvasElement.getContext(\<contextType\>)**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext) to get drawing context on the canvas.
     - If we use `2d` for `contextType`, the function will return [**CanvasRenderingContext2D**](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
       Follow the link to see the available drawing functions of `CanvasRenderingContext2D`.
+  - Save Canvas as a image by using [**HTMLCanvasElement.toDataURL()**](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL).
+- `a` tag can have `download` attribute, which makes users not to navigate to the URL but to download the linked URL.
+  - It should contains link of the file in `href` attribute, and `download` attribute should have file name.
 
 ## Project
 
@@ -33,6 +36,7 @@ Only used HTML, CSS, and Vanilla JavaScript.
   - Handle mouse events
   - Change Color and Thickness of brush
   - Fill/Paint on the canvas
+  - Save Image
 - Design for Desktop site (CSS)
 
 **What I added/modified**
