@@ -54,4 +54,4 @@ Only used HTML, CSS, and Vanilla JavaScript.
 | _Demo Image of _ |
 
 Code Link: https://github.com/hyecheol123/NomadCoder-PaintJS/tree/main/painting-board  
-Demo Link:
+Demo Link: https://hyecheol123.github.io/NomadCoder-PaintJS/painting-board/
