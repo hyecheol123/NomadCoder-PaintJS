@@ -41,6 +41,14 @@ Only used HTML, CSS, and Vanilla JavaScript.
 
 **What I added/modified**
 
+- TODO: Touch Screen Event Handler
+- Restore drawings and settings when canvas resized
+- Change Design (CSS)
+  - Full-size canvas
+  - Show/Hide Control Panel
+  - Indicate which color is currently selected
+- Design for Mobile Site (CSS)
+
 |      ![]()       |
 | :--------------: |
 | _Demo Image of _ |

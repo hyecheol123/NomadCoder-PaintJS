@@ -1,40 +1,18 @@
 body {
-  background-color: #f6f9fc;
   font-family: sans-serif;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 0px;
+  margin: 0;
+  padding: 0;
+  height: calc(100 * var(--vh, 1vh));
+  width: 100%;
+  overflow: hidden;
 }
 
-#canvas {
-  width: 550px;
-  height: 550px;
-  background-color: white;
-  border-radius: 15px;
-}
-
-#control {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#control #control-thickness-wrapper {
-  margin-bottom: 15px;
-}
-
-#control #control-button-wrapper {
-  margin-bottom: 20px;
-}
-
-#control #control-button-wrapper button {
+button {
   all: unset;
   cursor: pointer;
-  background-color: white;
   padding: 5px 0px;
-  width: 75px;
   text-align: center;
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0.2);
@@ -42,17 +20,83 @@ body {
   font-size: 1rem;
 }
 
-#control #control-button-wrapper button:active {
+#canvas {
+  height: calc(100 * var(--vh, 1vh));
+  width: 100%;
+  background-color: white;
+}
+
+#control {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+#control #control-btn {
+  background-color: lightgray;
+  width: 120px;
+  margin-top: 0.5rem;
+}
+
+#control #control-btn:active {
   transform: scale(0.98);
 }
 
-#control #color-control-wrapper {
+#control #control-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+#control #control-wrapper #thickness-button-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+#control #control-wrapper #thickness-button-wrapper #thickness {
+  flex-shrink: 1;
+  flex-grow: 1;
+  max-width: 130px;
+  min-width: 0;
+}
+
+#control #control-wrapper #thickness-button-wrapper #control-button-wrapper {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+#control #control-wrapper #control-button-wrapper button {
+  background-color: white;
+  width: 75px;
+}
+
+#control #control-wrapper #control-button-wrapper button:active {
+  transform: scale(0.98);
+}
+
+#control #control-wrapper #color-control-wrapper {
   display: flex;
 }
 
-#control #color-control-wrapper .color-control {
-  width: 50px;
-  height: 50px;
+#control #control-wrapper #color-control-wrapper .color-control {
+  max-width: 50px;
+  max-height: 50px;
+  width: calc((100vw - 35px) / 9);
+  height: calc((100vw - 35px) / 9);
   border-radius: 50%;
   cursor: pointer;
+}
+
+#control #control-wrapper #color-control-wrapper .selected {
+  box-shadow: 0 0 0 5px rgb(104, 104, 104) inset;
 }
